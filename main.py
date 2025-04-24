@@ -13,7 +13,10 @@ async def proxy_post(req: Request):
         wp_pass = body["password"]
         payload = body["data"]
 
-        headers = {"Content-Type": "application/json"}
+        headers = {
+            "Content-Type": "application/json",
+            "X-Proxy-Token": "letmein123"
+        }
         response = scraper.post(
             target_url,
             auth=(wp_user, wp_pass),
